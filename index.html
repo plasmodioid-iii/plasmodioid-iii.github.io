@@ -71,8 +71,8 @@
 	}
 
 	body button.little{
-		margin-top: 30px;
-		font-size: 50px;
+		margin-top: 3px;
+		font-size: 30px;
 		border-width: 3px;
 	}
 
@@ -422,11 +422,11 @@ loadlevel = (i) => {
 	</style>
 	<div class = "little">progression: ${progress}✔</div>
 	<button class = "little topright2" id = "LEVELMAP"> gotomainmap </button> 
-	<button class = "little topright" id = "MAINMENU"> startermenu </button> <br>
-	<div> ${levels[i].gram} </div>
+	<button class = "little topright" id = "MAINMENU"> startermenu </button>
+	<div style=margin-top:80px> ${levels[i].gram} </div>
 	<input id = "input"> </input>
-	<div style=margin-top:20px>
-	<button class = "little ${progress>=getTriangle(i-11)&&i>=11?"":"greyed"}" id = "UP" style="position: relative;top: 50%;transform: translateY(10%);"> ^ </button> 
+	<div>
+	<button class = "little ${progress>=getTriangle(i-11)&&i>=11?"":"greyed"}" id = "UP" style="position: relative;top: 50%;transform: translateY(50%);"> ^ </button> 
 	</div>
 	<div>
 	<button class = "little ${progress>=getTriangle(i-1)&&i!=0?"":"greyed"}" id = "PREVIOUS" style="position: relative;top: 50%;transform: translateY(-20%);"> < </button> 
@@ -434,7 +434,7 @@ loadlevel = (i) => {
 	<button class = "little ${progress>=getTriangle(i+1)?"":"greyed"}" id = "ULTERIOR" style="position: relative;top: 50%;transform: translateY(-20%);"> > </button>
 	</div>
 	<div>
-	<button class = "little ${progress>=getTriangle(i+11)&&i<=109?"":"greyed"}" id = "DOWN" style="position: relative;top: 50%;transform: translateY(-50%);"> v </button> 
+	<button class = "little ${progress>=getTriangle(i+11)&&i<=109?"":"greyed"}" id = "DOWN" style="position: relative;top: 50%;transform: translateY(-100%);"> v </button> 
 	</div>
 	`
 	if(levels[i].completed)document.body.style.backgroundColor = "#2ca583";
@@ -497,8 +497,8 @@ loadlevel = (i) => {
 loadsettings = () => {
 	document.getElementById("game").innerHTML = `
 	<div> progression: ${progress}✔ </div>
-	<button class = "menubut"id="CLEARALL"> CLEARALL </button>
-	<button class = "menubut"id="MAINMENU"> MAINMENU </button>
+	<button class = "menubut"id="CLEARALL"> resetitall! </button>
+	<button class = "menubut"id="MAINMENU"> startermenu </button>
 	`
 
 	document.getElementById("CLEARALL").onclick = () => {
@@ -521,21 +521,11 @@ loadsettings = () => {
 
 loadcredits = () => {
 	document.getElementById("game").innerHTML = `
-	<div> <b> CREDITTO</b></div>
-	<div> GAMEJACK </div>
-	<div> IDEAJACK </div>
-	<div> TESTDEUS </div>
-	<div> HELPDEUS </div>
-	<div class = "medium"> TESTALAN </div>
-	<div class = "medium"> TESTANUT </div>
-	<div class = "medium"> TESTJACK </div>
-	<div class = "medium"> TESTJAKE </div>
-	<div class = "medium"> TESTJOEL </div>
-	<div class = "medium"> TESTLSLO </div>
-	<div class = "medium"> TESTNICK </div>
-	<div class = "medium"> TESTZARA </div><br>
+	<div> <b> thememorial</b></div>
+	<div> restinpeace </div>
+	<div> tojacklance </div>
 
-	<button id="MAINMENU"> MAINMENU </button>
+	<button id="MAINMENU"> startermenu </button>
 	`
 
 	document.getElementById("MAINMENU").onclick = () => {
