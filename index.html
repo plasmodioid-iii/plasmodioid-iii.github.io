@@ -333,7 +333,7 @@ hackthing = (x, y) => {
 						}
 
 loadlevelmenu = () => {
-	s = `<div class = "little">PROGRESS: ${progress}✔</div><button class = "little topright" id = "MAINMENU"> MAINMENU </button> <div style=padding:20px;></div> <div class="levelrow">`;
+	s = `<div class = "little">progression: ${progress}✔</div><button class = "little topright" id = "MAINMENU"> startermenu</button> <div style=padding:20px;></div> <div class="levelrow">`;
 	z = 0;
 	r = 0;
 	opac = 100;
@@ -361,7 +361,7 @@ loadlevelmenu = () => {
 			level.unlocked = true;
 			let uid = "unlocked"+i
 			s += `<button class="levelbut${level.completed?" comp":""}" style=opacity:${opac}% onclick="${r <= progress?`loadlevel(${i})`:'' }">
-					<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"REQUIRES " + r + "✔"}</div>	
+					<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"NEEDEDVALUE " + r + "✔"}</div>	
 					<div class="medium">	${ z}  </div>
 					<div class="tiny" ${level.completed?"":"style='visibility:hidden'"}>${upper_answer}</div>
 
@@ -370,7 +370,7 @@ loadlevelmenu = () => {
 					//setTimeout(hackthing(uid, ""), 100*(i-firstanim))
 		}else{
 			s += `<button class="levelbut${level.completed?" comp":""}" style=opacity:${opac}% onclick="${r <= progress?`loadlevel(${i})`:'' }">
-						<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"REQUIRES " + r + "✔"}</div>
+						<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"NEEDEDVALUE " + r + "✔"}</div>
 						<div class="medium">	${ z}  </div>
 						<div class="tiny" ${level.completed?"":"style='visibility:hidden'"}>${upper_answer}</div>
 
@@ -391,9 +391,9 @@ loadlevelmenu = () => {
 
 loadending = () => {
 	document.getElementById("game").innerHTML = `
-	<div class = "little">PROGRESS: ${progress}✔</div>
-	<button class = "little topright2" id = "LEVELMAP"> LEVELMAP </button> 
-	<button class = "little topright" id = "MAINMENU"> MAINMENU </button> <br>
+	<div class = "little">progression: ${progress}✔</div>
+	<button class = "little topright2" id = "LEVELMAP"> gotogridmap </button> 
+	<button class = "little topright" id = "MAINMENU"> startermenu </button> <br>
 	<div> GAMEBEAT </div>
 	<div> YOUDIDIT </div>
 	<div> GREATJOB </div>
@@ -420,9 +420,9 @@ loadlevel = (i) => {
 	document.getElementById("game").innerHTML = `
 	<style>
 	</style>
-	<div class = "little">PROGRESS: ${progress}✔</div>
-	<button class = "little topright2" id = "LEVELMAP"> LEVELMAP </button> 
-	<button class = "little topright" id = "MAINMENU"> MAINMENU </button> <br>
+	<div class = "little">progression: ${progress}✔</div>
+	<button class = "little topright2" id = "LEVELMAP"> gotomainmap </button> 
+	<button class = "little topright" id = "MAINMENU"> startermenu </button> <br>
 	<div> ${levels[i].gram} </div>
 	<input id = "input"> </input>
 	<div style=margin-top:20px>
@@ -496,7 +496,7 @@ loadlevel = (i) => {
 
 loadsettings = () => {
 	document.getElementById("game").innerHTML = `
-	<div> PROGRESS: ${progress}✔ </div>
+	<div> progression: ${progress}✔ </div>
 	<button class = "menubut"id="CLEARALL"> CLEARALL </button>
 	<button class = "menubut"id="MAINMENU"> MAINMENU </button>
 	`
