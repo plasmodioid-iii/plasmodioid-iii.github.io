@@ -71,7 +71,7 @@
 	}
 
 	body button.little{
-		margin-top: 200px;
+		margin-top: 3px;
 		font-size: 30px;
 		border-width: 3px;
 	}
@@ -502,7 +502,7 @@ loadsettings = () => {
 	document.getElementById("game").innerHTML = `
 	<div> progression: ${progress}✔ </div>
 	<button class = "menubut"id="CLEARALL"> resetitall! </button>
-	<button class = "menubut"id="MAINMENU"> startermenu </button>
+	<button class = "menubut"id="MAINMENU"> ${menulabel} </button>
 	`
 
 	document.getElementById("CLEARALL").onclick = () => {
@@ -529,7 +529,7 @@ loadcredits = () => {
 	<div> restinpeace </div>
 	<div> tojacklance </div>
 
-	<button id="MAINMENU"> startermenu </button>
+	<button id="MAINMENU"> ${menulabel} </button>
 	`
 
 	document.getElementById("MAINMENU").onclick = () => {
