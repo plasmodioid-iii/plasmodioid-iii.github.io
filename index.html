@@ -71,7 +71,7 @@
 	}
 
 	body button.little{
-		margin-top: 3px;
+		margin-top: 200px;
 		font-size: 30px;
 		border-width: 3px;
 	}
@@ -98,6 +98,7 @@
 
 	.levelrow{
 		white-space:nowrap;
+		height:110px;
 	}
 
 	body button{
@@ -285,6 +286,9 @@ curlevel = levels[0]
 progress = 0;
 h_triangle = 1
 
+maplabel = "viewthegrid"
+menulabel = "startscreen"
+
 getTriangle = (i) => {
 	triangle = (i%11)+Math.floor(i/11)
 	r = triangle
@@ -333,7 +337,7 @@ hackthing = (x, y) => {
 						}
 
 loadlevelmenu = () => {
-	s = `<div class = "little">progression: ${progress}✔</div><button class = "little topright" id = "MAINMENU"> startermenu</button> <div style=padding:20px;></div> <div class="levelrow">`;
+	s = `<div class = "little">progression: ${progress}✔</div><button class = "little topright" id = "MAINMENU"> ${menulabel}</button> <div style=padding:30px;></div> <div class="levelrow">`;
 	z = 0;
 	r = 0;
 	opac = 100;
@@ -392,8 +396,8 @@ loadlevelmenu = () => {
 loadending = () => {
 	document.getElementById("game").innerHTML = `
 	<div class = "little">progression: ${progress}✔</div>
-	<button class = "little topright2" id = "LEVELMAP"> gotogridmap </button> 
-	<button class = "little topright" id = "MAINMENU"> startermenu </button> <br>
+	<button class = "little topright2" id = "LEVELMAP"> ${gridlabel} </button> 
+	<button class = "little topright" id = "MAINMENU"> ${menulabel} </button> <br>
 	<div> GAMEBEAT </div>
 	<div> YOUDIDIT </div>
 	<div> GREATJOB </div>
@@ -421,8 +425,8 @@ loadlevel = (i) => {
 	<style>
 	</style>
 	<div class = "little">progression: ${progress}✔</div>
-	<button class = "little topright2" id = "LEVELMAP"> gotomainmap </button> 
-	<button class = "little topright" id = "MAINMENU"> startermenu </button>
+	<button class = "little topright2" id = "LEVELMAP"> ${maplabel} </button> 
+	<button class = "little topright" id = "MAINMENU"> ${menulabel} </button>
 	<div style=margin-top:80px> ${levels[i].gram} </div>
 	<input id = "input"> </input>
 	<div>
@@ -433,8 +437,8 @@ loadlevel = (i) => {
 	${levels[i].z}
 	<button class = "little ${progress>=getTriangle(i+1)?"":"greyed"}" id = "ULTERIOR" style="position: relative;top: 50%;transform: translateY(-20%);"> > </button>
 	</div>
-	<div>
-	<button class = "little ${progress>=getTriangle(i+11)&&i<=109?"":"greyed"}" id = "DOWN" style="position: relative;top: 50%;transform: translateY(-100%);"> v </button> 
+	<div style=height:30px>
+	<button class = "little ${progress>=getTriangle(i+11)&&i<=109?"":"greyed"}" id = "DOWN" style="position: relative;top: 50%;transform: translateY(-110%);"> v </button> 
 	</div>
 	`
 	if(levels[i].completed)document.body.style.backgroundColor = "#2ca583";
@@ -535,6 +539,7 @@ loadcredits = () => {
 }
 
 loadmainmenu = () => {
+	document.body.style.backgroundColor = "#2136c0";
 	document.getElementById("game").innerHTML = `
 	<div> hendecagram </div>
 	<button class = "menubut" id = "PLAYGAME"> playthegame</button>
