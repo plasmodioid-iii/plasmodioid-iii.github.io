@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-	<meta content="OCTOGRAM" property="og:title">
-	<meta content="WORDGAME" property="og:description">
+	<meta content="hendecagram" property="og:title">
+	<meta content="gamething!!" property="og:description">
 </description>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lekton">
 
@@ -20,7 +20,7 @@
 	
 	body{
 		background-color: #2136c0;
-		overflow: hidden;
+		/*overflow: hidden;*/
 	}
 
 	body, button, input{
@@ -62,6 +62,14 @@
 		background-color: #2ca583;
 		border: 2px solid #04241d;
 		color: #000000;
+	}
+
+	body button.winnerbut{
+		margin-top: 10px;
+		margin-left: 10px;
+		height: 100px;
+		width: 100px;
+		background-color: #bb2ab9;
 	}
 
 	body button.levelbut{
@@ -145,7 +153,24 @@
 
 	textarea:focus, input:focus{
     outline: none;
-}
+	}
+
+	.grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+            gap: 5px; /* Space between boxes */
+            width: 350px; /* Total grid width */
+    }
+
+    .grid-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /*border: 1px solid #000;*/
+            font-size: 80px;
+            /*background-color: #f0f0f0;*/
+            height: 105px; /* Fixed height for each box */
+    }
 
 	</style>
 <script>
@@ -155,8 +180,8 @@ levels = [
 	{gram: "cymbalsound", ans: "symbol"},
 	{gram: "observe+gal", ans: "class"},
 	{gram: "unitudblauk", ans: "status"},
-	{gram: "||i[12]+NTS", ans: "orients"},
-	{gram: "furk", ans: "he"},
+	{gram: "aligns/asia", ans: "orients"},
+	{gram: "elementtwo", ans: "he"},
 	{gram: "russianium", ans: "ruthenium"},
 	{gram: "thioelement", ans: "sulfur,sulphur"},
 	{gram: "giantsonium", ans: "titanium"},
@@ -172,7 +197,7 @@ levels = [
 	{gram: "<i>p</i>seachicken", ans: "piano tuna"},
 	{gram: "<i>ppppppppppp</i>", ans: "pianississississississississississimo"},
 	{gram: "verylongkey", ans: " "},
-	{gram: "beanandthen", ans: " "},
+	{gram: "ununununium", ans: "ium"},
 	{gram: "blackcircle", ans: "."},
 
 	{gram: "ju(🧊🧊🧊🧊🧊)st", ans: "injustice"},
@@ -181,7 +206,7 @@ levels = [
 	{gram: "kmhmmcmormm", ans: "distance"},
 	{gram: "sayntrapeze", ans: "entropies"},
 	{gram: "top+lead+🤯💀", ans: "foreheads"},
-	{gram: "sweet🧒🧒🧒🧒🧒🧒", ans: "sweet sixteen,sweet 16"},
+	{gram: "sweet🧒🧒🧒🧒🧒🧒", ans: "sweet sixteen,sweet 16,sweet sixteens,sweet 16s"},
 	{gram: "debrrrrrrrr", ans: "debater"},
 	{gram: "whitecircle", ans: "O,o"},
 	{gram: "(invisible)", ans: " "},
@@ -206,80 +231,103 @@ levels = [
 	{gram: "meta:c4l&4u", ans: "omnipresent"},
 	{gram: "notinaeiouy", ans: "consonant"},
 	{gram: "beanandthen", ans: " "},
-	{gram: "", ans: ""},
-	{gram: "", ans: "hotel"},
+	{gram: "KYCAIDNCAZ🗺️", ans: "pacific,pacific ocean"},
+	{gram: "othellocoed", ans: "hotel"},
 	{gram: "<i>p</i>middlenote", ans: "c4"},
 	{gram: "plasticbomb", ans: "c4"},
 
-	{gram: "", ans: "GEM"},
+	{gram: "jewelryrock", ans: "gem"},
 	{gram: "irillogical", ans: "rational"},
 	{gram: "aunabnormal", ans: "atypical"},
 	{gram: "aaaaaaaatom", ans: "cut"},
 	{gram: "numberofa's", ans: "1"},
-	{gram: "", ans: ""},
-	{gram: "", ans: "california"},
-	{gram: "", ans: ""},
+	{gram: `<div style=margin-top:80px>THEMETAMETA</div>
+		<div><img src="./images/1.png"style=width:800px></img></div>
+		<div><img src="./images/2.png"style=width:800px></img></div>
+		<div><img src="./images/3.png"style=width:800px></img></div>
+		<div><img src="./images/4.png"style=width:800px></img></div>
+		<div><img src="./images/5.png"style=width:800px></img></div>
+		<div><img src="./images/6.png"style=width:800px></img></div>
+		<div><img src="./images/7.png"style=width:800px></img></div>
+		<div><img src="./images/8.png"style=width:800px></img></div>
+		<div><img src="./images/9.png"style=width:800px></img></div>
+		<div><img src="./images/10.png"style=width:800px></img></div>
+		<div><img src="./images/conversion.png"style=width:800px></img></div>`, ans: "thanks rain"},
+	{gram: "KYNVIDNVAZ🗺️", ans: "california"},
+	{gram: "notparadox?", ans: "no"},
 	{gram: "blackcircle", ans: "."},
 	{gram: "itcontains🍨", ans: "c1"},
-	{gram: "", ans: "brew"},
+	{gram: "producebeer", ans: "brew"},
 
 	{gram: "tallyalll's", ans: "5"},
 	{gram: "unfortunate", ans: "unfortunate"},
-	{gram: '<img src="https://lh3.googleusercontent.com/d/1bHTKuh_oy9p10GMTDkyl6RiYXbLTItKt">h</img>', ans: "foreseeable"},
-	{gram: "NRNRNRNR", ans: "foreigner,foreigners"},
-	{gram: "EEEEEEEE", ans: "eighty,eighties"},
-	{gram: "LARCOINS", ans: "half dollar coins"},
-	{gram: "EEFGGFED", ans: "ode to joy"},
-	{gram: "GFLATAKA", ans: "f sharp,fsharp"},
-	{gram: "REENIGNE", ans: "reverse engineer"},
-	{gram: "NEPAINCK", ans: "pain in the neck"},
-	{gram: "AAEGIMRR", ans: "arranged marriage"},
-	{gram: "THESUMME", ans: "the endless summer"},
-	{gram: "REDXBLUE", ans: "purple"},
-	{gram: "GOATXEWE", ans: "geep,shoat"},
-	{gram: "HPXDRACO", ans: "drarry"},
-	{gram: "BOXXXMAS", ans: "present"},
-	{gram: "CYAGENTA", ans: "blue"},
-	{gram: "TEQAHLUA", ans: "brave bull"},
-	{gram: "LUNKFAST", ans: "brunch"},
-	{gram: "NWOFQKEY", ans: "a,1,!,!key,1key,akey"},
-	{gram: "QZASXYHN", ans: "hi"},
-	{gram: "WTFISBBQ", ans: "barbecue"},
-	{gram: "NHLSGOAT", ans: "gretzky,wayne,wayne gretzky"},
-	{gram: "WWIIUSVP", ans: "garner,johngarner,johnnancegarner,john,henry,henrywallace,wallace,henryawallace,henryagardwallace"},
-	{gram: "MFWQQIRL", ans: "cry,crying"},
-	{gram: "LBKGETAL", ans: "units,weight,units of weight"},
-	{gram: "ACGASRNA", ans: "t,thr,threonine"},
-	{gram: "VVVVVVDR", ans: "violet"},
-	{gram: "ATMWOCPU", ans: "bank,teller"},
-	{gram: "RFGFBOAF", ans: "yellow"},
-	{gram: "READYAIM", ans: "fire"},
-	{gram: "HOOKLINE", ans: "sinker"},
-	{gram: "DUCKDUCK", ans: "goose"},
-	{gram: "JOMEGAMY", ans: "beth"},
-	{gram: "LLORPORD", ans: "pots"},
-	{gram: "USECYCLE", ans: "duce"},
-	{gram: "BLEDRITE", ans: "whoo,woo,who"},
-	{gram: "OWOTHREE", ans: "net"},
-	{gram: "OLIDLIGA", ans: "squids"},
-	{gram: "LDWEATAS", ans: "booster"},
-	{gram: "LLDDRRUL", ans: "g"},
-	{gram: "SKYLIGHT", ans: "sun,star"},
-	{gram: "EARPIECE", ans: "lobe,eardrum,ear canal, ear drum, inner ear,cochlea,pinna,incus,fossa,helix,antihelix,skin"},
-	{gram: "ENDOWING", ans: "repay,payback,pay back"},
-	{gram: "NOTARIES", ans: "libra"},
-	{gram: "MANDATED", ans: "boyfriend"},
-	{gram: "MURTWICE", ans: "murmur"},
-	{gram: "SPINMONS", ans: "snow"},
-	{gram: "SHIFTADS", ans: "bet"},
-	{gram: "AAFTERER", ans: "era"},
-	{gram: "MANDATED", ans: "mated"},
-	{gram: "DRAWKCAB", ans: "backward"},
-	{gram: "ANAGREMS", ans: "managers"},
-	{gram: "ACDFHIJK", ans: "beg"},
-	{gram: "UWNPHJCE", ans: "void"},
-	{gram: "ABEHMQVZ", ans: "acceded"},
-	{}
+	{gram: "totalthet's", ans: "4"},
+	{gram: "unicode0d9e", ans: "among us,amogus"},
+	{gram: "e@erofthe^s", ans: "rabbit"},
+	{gram: "amountofo's", ans: "3"},
+	{gram: "mikeadler*9", ans: "dreamlike"},
+	{gram: "🔴\"sighed\"🔴7", ans: "resided"},
+	{gram: "greenforce4", ans: "leaf"},
+	{gram: "sumfrom1to9", ans: "45"},
+	{gram: "exponenttwo", ans: "squared"},
+
+	{gram: "17.8°S,31°E", ans: "zimbabwe"},
+	{gram: "ununununium", ans: "irroentgenium"},
+	{gram: "res₂bution₃", ans: "redistribution"},
+	{gram: "countnumof?", ans: "1"},
+	{gram: "keydownof~:", ans: "tab"},
+	{gram: "dividetwigs", ans: "chopsticks"},
+	{gram: "@+lil___x<5", ans: "santa"},
+	{gram: "aloudhotel2", ans: "in"},
+	{gram: "🧔‍♂️👴indorsis7", ans: "laments"},
+	{gram: "A156778n=28", ans: "19194"},
+	{gram: "A1Z26sumof<a href='./random_words.txt'>:</a>", ans: "255118129115"},
+
+	{gram: "DE,BY,TN,CY", ans: "Z"},
+	{gram: "countthec's", ans: "2"},
+	{gram: "sobe₂ently₂", ans: "disobediently"},
+	{gram: "ssociative₉", ans: "nonassociative"},
+	{gram: "keytwixt←→:", ans: "up arrow,down arrow"},
+	{gram: "keyontopof:", ans: "p"},
+	{gram: "coreclisis2", ans: "is"},
+	{gram: "<img src=\"https://lh3.googleusercontent.com/d/1bHTKuh_oy9p10GMTDkyl6RiYXbLTItKt\"></img>👕wheeled10", ans: "controlled"},
+	{gram: "riticizing6", ans: "hiding"},
+	{gram: "elementysny", ans: "tiny"},
+	{gram: "ubefrfuryyb", ans: "url"},
+
+	{gram: "TJ,CN,KZ,UZ", ans: "kyrgyzstan"},
+	{gram: 'uses#esses?', ans: "5"},
+	{gram: "ckquestion₃", ans: "trick question"},
+	{gram: "totalalll's", ans: "4"},
+	{gram: "pastetheurl", ans: "https://plasmodioid-iii.github.io/"},
+	{gram: "FitnessGram", ans: "The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly but gets faster each minute after you hear this signal bodeboop. A sing lap should be completed every time you hear this sound. ding Remember to run in a straight line and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark. Get ready!… Start. ding|The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start."},
+	{gram: "badifcruel7", ans: "lucifer"},
+	{gram: "\"hof5ws?\"🧑‍🎤7", ans: "housing"},
+	{gram: "oddtrials<3", ans: "lit"},
+	{gram: "rergeeaming", ans: "dot"},
+	{gram: "gualtiwrocs", ans: "com"},
+
+	{gram: `<div class="grid-container" style=margin-top:90px;>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item"> </div>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">a</div>
+			<div class="grid-item"> </div>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">⬛</div>
+			</div>`, ans: "marilyn monroe", curr: [7,0]},
+	{gram: "numberof''s", ans: "2"},
+	{gram: "innerlogues", ans: "inner monologues"},
+	{gram: "countthet's", ans: "3"},
+	{gram: "the🐝🎥script", ans: `According to all known laws of aviation`},
+	{gram: "chambersof💖", ans: "atria"},
+	{gram: "fx=lenx;x=8", ans: "5"},
+	{gram: "fffx;x=1313", ans: "4"},
+	{gram: "fffx;x=11⁹⁹", ans: "6"},
+	{gram: "susesaswhip", ans: "slash"},
+	{gram: "typethename", ans: "hendecagram"}
 	];
 // i fucking hate javascript
 //cellsize = 5;
@@ -291,8 +339,9 @@ levels = [
 //levelButtons.style.width = cellsize*20
 
 curlevel = levels[0]
-progress = 100;
+progress = 0;
 h_triangle = 1
+won = false
 
 maplabel = "viewthegrid"
 menulabel = "startscreen"
@@ -315,19 +364,19 @@ getTriangle = (i) => {
 }
 
 save= ()=>{
-	localStorage.setItem('savedata', [JSON.stringify([progress, levels])])
+	localStorage.setItem('savedata', [JSON.stringify([progress, levels, h_triangle, won])])
 }
 
 load = () => {
 	if(!localStorage.getItem('savedata')) return false;
-	// temp = JSON.parse(localStorage.getItem('savedata'));
-	// for(i in temp[1]){
-	//	if(levels[i].gram) {
-	//		temp[1][i].gram = levels[i].gram
-	//		temp[1][i].ans = levels[i].ans;
-	//	}
-	//}
-	//	[progress, levels] = temp;
+	temp = JSON.parse(localStorage.getItem('savedata'));
+	for(i in temp[1]){
+		if(levels[i].gram) {
+			temp[1][i].gram = levels[i].gram
+			temp[1][i].ans = levels[i].ans;
+		}
+	}
+		[progress, levels, h_triangle, won] = temp;
 	console.log()
 }
 
@@ -368,12 +417,15 @@ loadlevelmenu = () => {
 		opac = 100-fog*(triangle+1-h_triangle)
 		upper_answer = String(level.ans).split(',')[0]
 		invisible = false
-		const empty_levels = "19,20,30,31,41,42,50,51,60,62".split(',')
+		const empty_levels = "19,20,30,31,41,42,50".split(',')
 		//console.log('helelelelep',i)
 		//console.log(empty_levels.includes(i))
 		if(empty_levels.includes(i)){
 			invisible = true
 			upper_answer = '\\n'
+		}
+		else if(i == 114||i == 104||i == 103){
+			upper_answer = 'nope'
 		}
 		else upper_answer = upper_answer.toUpperCase()
 
@@ -383,12 +435,20 @@ loadlevelmenu = () => {
 		else{
 			size='tiny'
 		}
-			
+		
+		const heart_levels = "37,39,47,49,51,58,62,70,72,82".split(',')
+		if(heart_levels.includes(i)&&won){
+			buttonclass = 'winnerbut'
+		}
+		else{
+			buttonclass = 'levelbut'
+		}
+
 		if(progress >= r && !level.unlocked){
 			if(firstanim == -1) firstanim = i-1;
 			level.unlocked = true;
 			let uid = "unlocked"+i
-			s += `<button class="levelbut${level.completed?" comp":""}" style=opacity:${opac}% onclick="${r <= progress?`loadlevel(${i})`:'' }">
+			s += `<button class="${buttonclass}${level.completed?" comp":""}" style=opacity:${opac}% onclick="${r <= progress?`loadlevel(${i})`:'' }">
 					<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"NEEDEDVALUE " + r + "✔"}</div>	
 					<div class="medium">	${ z}  </div>
 					<div class="${size}" ${level.completed?"":"style='visibility:hidden'"} ${invisible?"style='visibility:hidden'":""}>${upper_answer}</div>
@@ -397,7 +457,7 @@ loadlevelmenu = () => {
 					//setTimeout(hackthing(uid, "hidden"), 1)
 					//setTimeout(hackthing(uid, ""), 100*(i-firstanim))
 		}else{
-			s += `<button class="levelbut${level.completed?" comp":""}" style=opacity:${opac}% onclick="${r <= progress?`loadlevel(${i})`:'' }">
+			s += `<button class="${buttonclass}${level.completed?" comp":""}" style=opacity:${opac}% onclick="${r <= progress?`loadlevel(${i})`:'' }">
 						<div class="tiny" ${r > progress?"":"style='visibility:hidden'"}>${"NEEDEDVALUE " + r + "✔"}</div>
 						<div class="medium">	${ z}  </div>
 						<div class="${size}" ${level.completed?"":"style='visibility:hidden'"} ${invisible?"style='visibility:hidden'":""}>${upper_answer}</div>
@@ -417,29 +477,6 @@ loadlevelmenu = () => {
 	}
 }
 
-loadending = () => {
-	document.getElementById("game").innerHTML = `
-	<div class = "little">progression: ${progress}✔</div>
-	<button class = "little topright2" id = "LEVELMAP"> ${gridlabel} </button> 
-	<button class = "little topright" id = "MAINMENU"> ${menulabel} </button> <br>
-	<div> GAMEBEAT </div>
-	<div> YOUDIDIT </div>
-	<div> GREATJOB </div>
-	<div> THANKYOU </div>
-
-	`
-
-	document.getElementById("LEVELMAP").onclick = () => {
-		loadlevelmenu()
-
-	}
-
-	document.getElementById("MAINMENU").onclick = () => {
-		loadmainmenu()
-
-	}
-}
-
 hasseenrick = 0;
 seencube = 0;
 wrongcubes = 0;
@@ -452,13 +489,16 @@ loadlevel = (i) => {
 	}
 	if(i==10){preset = levels[i].preset}
 	else{preset=''}
+	if(i==110){levelbody = levels[i].gram}
+	else if(i==60){levelbody = levels[i].gram; console.log(60)}
+	else{levelbody = `<div style=margin-top:80px> ${levels[i].gram} </div>`}
 	document.getElementById("game").innerHTML = `
 	<style>
 	</style>
 	<div class = "little">progression: ${progress}✔</div>
 	<button class = "little topright2" id = "LEVELMAP"> ${maplabel} </button> 
 	<button class = "little topright" id = "MAINMENU"> ${menulabel} </button>
-	<div style=margin-top:80px> ${levels[i].gram} </div>
+	${levelbody}
 	<input id = "input" value = "${preset}"> </input>
 	<div>
 	<button class = "little ${progress>=getTriangle(i-11)&&i>=11?"":"greyed"}" id = "UP" style="position: relative;top: 50%;transform: translateY(50%);"> ^ </button> 
@@ -476,7 +516,7 @@ loadlevel = (i) => {
 	else document.body.style.backgroundColor = "#2136c0";
 	document.getElementById("input").focus();
 	document.getElementById("input").onchange = (e) => {
-		if(i != 10) {
+		if(i != 10&&i != 110&&i != 104&&i != 114) {
 			seencube = 0
 			if(levels[i].ans.split(',').includes(e.target.value.toLowerCase())){
 				//bootout = true;
@@ -492,13 +532,45 @@ loadlevel = (i) => {
 				}
 				levels[i].completed = true;
 				save();
-				//if(levels[i].gram == "FINALLVL") loadending();
+				if(i == 60) {won=true;save();loadlevelmenu();}
+				else{
+				loadlevel(i);
+				}
+			}else{
+				e.target.value = "";
+			}
+		}
+		else if(i == 104){
+			if(levels[i].ans.split('|').includes(e.target.value)){
+				//bootout = true;
+				if(!levels[i].completed){
+					progress++;
+					this_triangle = (i%11)+Math.floor(i/11)+1
+					if(this_triangle>h_triangle) h_triangle=this_triangle
+				}
+				levels[i].completed = true;
+				save();
 				loadlevel(i);
 			}else{
 				e.target.value = "";
 			}
 		}
-		else{
+		else if(i == 114){
+			if(e.target.value.includes(levels[i].ans)){
+				//bootout = true;
+				if(!levels[i].completed){
+					progress++;
+					this_triangle = (i%11)+Math.floor(i/11)+1
+					if(this_triangle>h_triangle) h_triangle=this_triangle
+				}
+				levels[i].completed = true;
+				save();
+				loadlevel(i);
+			}else{
+				e.target.value = "";
+			}
+		}
+		else if(i == 10){
 			att = e.target.value.toLowerCase()
 			console.log(att)
 
@@ -506,7 +578,7 @@ loadlevel = (i) => {
 			ricknimation = 0;
 
 			if(!att.includes(' ')){
-				text = 'needsspace'
+				text = 'needsspaces'
 			}
 			else{
 				if(att.split(' ').length-1<4){
@@ -523,7 +595,7 @@ loadlevel = (i) => {
 						if(att.split('o').length-1<4){
 							text = 'needsmorose'
 						}
-						else if(att.includes('morose')){
+						if(att.includes('morose')){
 							text = 'imeanmoreos'
 						}
 						else if(att.split('o').length-1>4){
@@ -562,8 +634,11 @@ loadlevel = (i) => {
 												text = 'mmwrongcube'
 												wrongcubes += 1
 											}
-											else if(wrongcubes>=10){
+											else if(wrongcubes>=6&&wrongcubes<12){
 												text = 'cubeingames'
+											}
+											else if(wrongcubes>=12){
+												text = 'boardgames!'
 											}
 										}
 										else if(!regex1.test(att)&&!regex2.test(att)&&att.includes('die')){
@@ -613,16 +688,19 @@ loadlevel = (i) => {
 														}
 														else if(!att.includes('rick')&&att.includes('roll')){
 															if(!att.split(' ')[3].includes('roll')){
-																text = 'butnotthere'
+																text = 'noroll'
 															}
 															else{
 																if(!att.includes('not')&&!waitnonotx){
-																		text = 'waitnonotx!'
-																		waitnonotx = 1
-																	}
+																	text = 'addxtotheno'	
+																}
+																else if(!att.includes('not')&&!waitnonotx){
+																	text = 'waitnonotx!'
+																	waitnonotx = 1
+																}
 																else if(!att.includes('not')&&waitnonotx){
 																	text = 'diffletter!'
-																	}
+																}
 																else{
 																	// god does not roll dice
 																	unwanted = RegExp(`[abfhjkmpquvwxyz]`)
@@ -775,7 +853,7 @@ loadlevel = (i) => {
 					`
 				},1500)
 				setTimeout(() => {
-					text = '<a src="https://www.youtube.com/watch?v=dQw4w9WgXcQ">uhhhhhhhhhh<a/>'
+					text = '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">uhhhhhhhhhh<a/>'
 					document.getElementById("game").innerHTML = `
 					<style>
 					</style>
@@ -809,22 +887,103 @@ loadlevel = (i) => {
 			console.log('realoading')
 			loadlevel(10)
 		}
+		else if(i==110){
+			console.log(e)
+			console.log('110 achieved')
+			dir = e.target.value.toLowerCase()
+			mazemap = [['m[+','y+','r]+-','e[]+','o[+','e]+-'],
+						['a[]','c[]-','o[+','n-','r-','t]+-'],
+						['i[-','n+','m-','o]+-','n[+','w]+-'],
+						['h[]+','y]','l+','i+','r]','e[]+'],
+						['h[-','r]-','e[]-','d[]-','a[','h]-'],
+						['s[+','w+','e+','e]+-','m[]','r[]+'],
+						['n[]','r[]-','r[-','i+-','s-','i]-'],
+						['a[-','n+-','g+-',':+-',':+-','(]+-']
+					]
+
+			curr_y = levels[i].curr[0]
+			curr_x = levels[i].curr[1]
+			room = mazemap[curr_y][curr_x]
+			letter = room[0]
+			room.includes('[')?leftwall = '⬛':leftwall = ' '
+			room.includes(']')?rightwall = '⬛':rightwall = ' '
+			room.includes('+')?upwall = '⬛':upwall = ' '
+			room.includes('-')?downwall = '⬛':downwall = ' '		
+
+			if(dir=='n'&&upwall==' '){
+				levels[i].curr[0] -= 1
+				console.log('changed',levels[i].curr[0])
+			}
+
+			if(dir=='s'&&downwall==' '){
+				levels[i].curr[0] += 1
+				console.log('changed',levels[i].curr[0])
+			}
+
+			if(dir=='e'&&rightwall==' '){
+				levels[i].curr[1] += 1
+				console.log('changed',levels[i].curr[0])
+			}
+
+			if(dir=='w'&&leftwall==' '){
+				levels[i].curr[1] -= 1
+				console.log('changed',levels[i].curr[0])
+			}
+
+			if(dir=='marilyn monroe'){
+				if(!levels[i].completed){
+					progress++;
+					this_triangle = (i%11)+Math.floor(i/11)+1
+					if(this_triangle>h_triangle) h_triangle=this_triangle
+
+					//for(level of levels){
+					//	if(level.required == progress) bootout = true;
+					//}
+				}
+				levels[i].completed = true;
+				save();
+				//if(levels[i].gram == "FINALLVL") loadending();
+				loadlevel(i);
+			}
+
+			curr_y = levels[i].curr[0]
+			curr_x = levels[i].curr[1]
+			console.log(curr_y,curr_x)
+			room = mazemap[curr_y][curr_x]
+			letter = room[0]
+			room.includes('[')?leftwall = '⬛':leftwall = ' '
+			room.includes(']')?rightwall = '⬛':rightwall = ' '
+			room.includes('+')?upwall = '⬛':upwall = ' '
+			room.includes('-')?downwall = '⬛':downwall = ' '
+
+			levelbody = `<div class="grid-container" style=margin-top:90px;>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">${upwall}</div>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">${leftwall}</div>
+			<div class="grid-item">${letter}</div>
+			<div class="grid-item">${rightwall}</div>
+			<div class="grid-item">⬛</div>
+			<div class="grid-item">${downwall}</div>
+			<div class="grid-item">⬛</div>
+			</div>`
+
+			levels[i].gram = levelbody
+			loadlevel(110)
+		}
 	}
 
 	document.getElementById("LEVELMAP").onclick = () => {
 		loadlevelmenu()
-
 	}
 
 	document.getElementById("MAINMENU").onclick = () => {
 		loadmainmenu()
-
 	}
 
 	document.getElementById("PREVIOUS").onclick = () => {
 		r = getTriangle(i-1)
 		if(progress>=r&&i%11>0)loadlevel(i-1)
-
 	}
 
 	document.getElementById("ULTERIOR").onclick = () => {
@@ -859,6 +1018,8 @@ loadsettings = () => {
 			}
 		}
 		levels[0].unlocked = true;
+		h_triangle = 1
+		won = false
 		loadsettings();
 	}
 
@@ -895,22 +1056,18 @@ loadmainmenu = () => {
 
 	document.getElementById("PLAYGAME").onclick = () => {
 		loadlevelmenu(0)
-
 	}
 
 	document.getElementById("CONTINUE").onclick = () => {
 		if(progress > 0) loadlevelmenu(0)
-
 	}
 
 document.getElementById("SETTINGS").onclick = () => {
 		loadsettings()
-
 	}
 
 	document.getElementById("MOREINFO").onclick = () => {
 		loadcredits(0)
-
 	}
 }
 
